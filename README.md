@@ -1,4 +1,4 @@
-# Golang Swagger Implementation
+# Golang Swagger And JWT Implementation
 
 This project has been prepared for the purpose of example of Swagger and JWT integration with Golang v1.18
 
