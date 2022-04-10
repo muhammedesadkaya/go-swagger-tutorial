@@ -1,0 +1,92 @@
+definitions:
+  authapi.AuthRequest:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  httperror.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+host: localhost:1453
+info:
+  contact:
+    email: muhammedesadkaya@gmail.com
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Golang Swagger Github Tutorial
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Golang Swagger Tutorial
+  version: "1.0"
+paths:
+  /auth:
+    post:
+      consumes:
+      - application/json
+      description: Generate token
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/authapi.AuthRequest'
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httperror.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httperror.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httperror.HTTPError'
+      summary: Generate Token
+      tags:
+      - Auths
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Get All Users
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httperror.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httperror.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httperror.HTTPError'
+      security:
+      - BearerAuth: []
+      summary: Get All Users
+      tags:
+      - Users
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
