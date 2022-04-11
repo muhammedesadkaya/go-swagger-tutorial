@@ -2,6 +2,8 @@
 
 This project has been prepared for the purpose of example of Swagger and JWT integration with Golang v1.18
 
+Documentation (Turkish): https://medium.com/@muhammedesadkaya/af8d84ff9c63
+
 ## Libraries
 
 1. gin-gonic/gin
